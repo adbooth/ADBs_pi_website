@@ -8,7 +8,7 @@
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
     <!-- Ubiquitous CSS -->
-    <link rel='stylesheet' href='ubiq.css'>
+    <link rel='stylesheet' href='res/ubiq.css'>
 
     <!-- My Stuff -->
     <link rel='shortcut icon' href='res/favicon.jpg'>
@@ -32,7 +32,7 @@
                 </div>
                 <!-- About me container -->
                 <div class='container pod'>
-                    <?php include 'about.php'; ?>
+                    <?php require_once 'about.php'; ?>
                 </div>
             </div><!-- Column for photo and info -->
 
@@ -62,8 +62,8 @@
         </div>
     </div><!-- Whole container -->
 </body>
-<?php include 'footer.html'; ?>
+<?php require_once 'res/footer.html'; ?>
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-<script src='ubiq.js'></script>
+<script src='res/ubiq.js'></script>
 </html>
