@@ -8,7 +8,7 @@
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
     <!-- Ubiquitous CSS -->
-    <link rel='stylesheet' href='css/ubiq.css'>
+    <link rel='stylesheet' href='ubiq.css'>
 
     <!-- My Stuff -->
     <link rel='shortcut icon' href='res/favicon.jpg'>
@@ -23,7 +23,7 @@
             <div class='col-md-4'>
                 <!-- Profile pic container -->
                 <div class='container'>
-                    <img id='prof_pic' class='img-responsive' src='Chimney_prof_pic.jpg' alt='Photo of my face and some or all of my torso' onclick='switchProf()' style='cursor:pointer'>
+                    <img id='prof_pic' class='img-responsive' src='res/Chimney_prof_pic.jpg' alt='Photo of my face and some or all of my torso' onclick='switchProf()' style='cursor:pointer'>
                 </div>
                 <!-- Name container -->
                 <div class='container pod' onclick='goHome()' style='cursor:pointer'>
@@ -46,10 +46,10 @@
             <div class='col-md-8'>
                 <!-- Projects container -->
                 <div class='container pod'>
-                    <h3><a href='projects/projects.php'>Projects</a></h3>
+                    <h3><a href='projects.php'>Projects</a></h3>
                     <div class='row'>
                         <div class='col-md-6'>
-                            <p><a href='blog/blog.php'>Blog</a></p>
+                            <p><a href='blog.php'>Blog</a></p>
                             <p>Beer thermo</p>
                             <p>ARM stuff</p>
                         </div>
@@ -64,7 +64,7 @@
                     <h3>Blogs</h3>
                     <div class='row'>
                         <div class='col-md-6'>
-                            <p><a href='blog/blog.php'>Current</a></p>
+                            <p><a href='blog.php'>Current</a></p>
                             <p><a href='http://ab-sweden.blogspot.com/' target='blank'>Sweden</a></p>
                         </div>
                         <div class='col-md-6'>
@@ -92,9 +92,8 @@
         </div>
     </div><!-- Whole container -->
 </body>
-<?php include '/var/www/footer.html'; ?>
+<?php include 'footer.html'; ?>
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-<script src='js/ubiq.js'></script>
-<script>function goHome(){window.location.href='index.html';}</script>
+<script src='ubiq.js'></script>
 </html>
