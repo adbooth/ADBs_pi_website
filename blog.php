@@ -22,29 +22,26 @@
             <h5>on life, humans, and making blogs like this</h5>
         </div>
         <div class='row'>
+            <?php include 'blogFiller.php';?>
 
-            <!-- Column for the posts -->
-            <div class='col-md-8'>
-                <div class='container pod'>
-                    <?php include 'blogFiller.php';?>
-                    <?php
-                        print "<p>Hello World</p>";
-                    ?>
-                    <h1>Here's a title</h1>
-                    <p>Here's a post</p>
-                </div>
-            </div><!-- Column for the posts -->
+<!--             Column for the posts
+<div class='col-md-8'>
+    <div class='container pod'>
+        <h1>Here's a title</h1>
+        <p>Here's a post</p>
+    </div>
+</div>Column for the posts
 
-            <!-- Column for the sidebar -->
-            <div class='col-md-4'>
-                <div class='container pod'>
-                    <h3>Here's the archive</h3>
-                    <p>Here's January</p>
-                    <p>Here's December</p>
-                    <p>Here's Novermber</p>
-                </div>
-            </div><!-- Column for the sidebare -->
-
+Column for the sidebar
+<div class='col-md-4'>
+    <div class='container pod'>
+        <h3>Here's the archive</h3>
+        <p>Here's January</p>
+        <p>Here's December</p>
+        <p>Here's Novermber</p>
+    </div>
+</div>Column for the sidebar
+ -->
         </div>
     </div><!-- Whole container -->
 
