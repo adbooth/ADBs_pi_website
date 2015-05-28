@@ -54,7 +54,7 @@
                             <p>ARM stuff</p>
                         </div>
                         <div class='col-md-6'>
-                            <p><a href='index.html'>This website</a></p>
+                            <p><a href='https://github.com/adbooth/ADBs_pi_website' target="blank">This website</a></p>
                             <p>The home server it's hosted on</p>
                         </div>
                     </div>
