@@ -1,8 +1,6 @@
 ##### About
 
-This is the php version
-
-22 year old still in the throws of higher education.
+22 year old still in the throes of higher education.
 
 Currently interning at Corning Inc.'s Environmental Technologies plant in Erwin, NY.
 

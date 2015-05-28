@@ -32,13 +32,7 @@
                 </div>
                 <!-- About me container -->
                 <div class='container pod'>
-                    <h5>About</h5>
-                    <p>
-                        22 year old still in the throws of higher education.<br><br>
-                        Currently interning at Corning Inc.'s Environmental Technologies plant in Erwin, NY.<br><br>
-                        Come August I'll be back at SUNY Buffalo to finish up my last undergrad year in their Computer Engineering program. <br><br>
-                        After that, who knows?
-                    </p>
+                    <?php include 'about.php'; ?>
                 </div>
             </div><!-- Column for photo and info -->
 

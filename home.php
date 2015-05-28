@@ -33,14 +33,7 @@
                 <!-- About me container -->
                 <div class='container pod'>
                     <?php include 'about.php'; ?>
-<!--                     <h5>About</h5>
-<p>
-    22 year old still in the throws of higher education.<br><br>
-    Currently interning at Corning Inc.'s Environmental Technologies plant in Erwin, NY.<br><br>
-    Come August I'll be back at SUNY Buffalo to finish up my last undergrad year in their Computer Engineering program. <br><br>
-    After that, who knows?
-</p>
- -->                </div>
+                </div>
             </div><!-- Column for photo and info -->
 
             <!-- Column for content/links -->
@@ -55,7 +48,7 @@
                             <p>ARM stuff</p>
                         </div>
                         <div class='col-md-6'>
-                            <p><a href='https://github.com/adbooth/ADBs_pi_website' target="blank">This website</a></p>
+                            <p><a href='https://github.com/adbooth/ADBs_pi_website' target='blank'>This website</a></p>
                             <p>The home server it's hosted on</p>
                         </div>
                     </div>
@@ -75,11 +68,11 @@
                 </div>
                 <!-- Check Me Out -->
                 <div class='container pod'>
-                    <h3><a href='mailto:adbooth8@gmail.com' target='blank'>Talk</a>/<a href='https://github.com/adbooth' target='blank'>Fork</a>/<a href='Resume_Andrew_Booth.pdf'>Hire</a></h3>
+                    <h3><a href='mailto:adbooth8@gmail.com' target='blank'>Talk</a>/<a href='https://github.com/adbooth' target='blank'>Fork</a>/<a href='res/Resume_Andrew_Booth.pdf' target='blank'>Hire</a></h3>
                     <div class='row'>
                         <div class='col-md-6'>
                             <p><a href='mailto:adbooth8@gmail.com' target='blank'>Email</a></p>
-                            <p><a href='Resume_Andrew_Booth.pdf'>Current resume</a></p>
+                            <p><a href='res/Resume_Andrew_Booth.pdf' target='blank'>Current resume</a></p>
                             <p><a href='https://www.linkedin.com/in/boothad' target='blank'>LinkedIn</a></p>
                         </div>
                         <div class='col-md-6'>
