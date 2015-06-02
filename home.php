@@ -1,3 +1,32 @@
+<?php
+// Get file contents and turn into JSON object
+$home_content = file_get_contents('home_content.json');
+$home_json = json_decode($home_content);
+
+// Function which returns section markup dependendent on section name
+function populate_section($section_title){
+    // Get global JSON object into this function
+    global $home_json;
+    // Use argument to access element of JSON object
+    $section_content = $home_json->{$section_title};
+    // Initialize final markup string, half count and counter variables
+    $section_ml = "";
+    $half = count($section_content)/2;
+    $counter = 0;
+    // Loop over items in each section and embed in HTML
+    foreach($section_content as $item){
+        // If just over half way through list, start second column
+        if($counter > $half){
+            $section_ml .= "</div><div class='col-md-6'>";
+        }
+        // Initialize left and right side of section markup
+        $section_ml .= "<p><a href='" . $item->{'anchor'} . "' target='" . $item->{'target'} . "'>" . $item->{'text'} . "</a></p>";
+        $counter++;
+    }
+    return $section_ml;
+}
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -8,7 +37,7 @@
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
     <!-- Ubiquitous CSS -->
-    <link rel='stylesheet' href='res/ubiq.css'>
+    <link rel='stylesheet' href='ubiq.css'>
 
     <!-- My Stuff -->
     <link rel='shortcut icon' href='res/favicon.jpg'>
@@ -43,13 +72,7 @@
                     <h3><a href='projects.php'>Projects</a></h3>
                     <div class='row'>
                         <div class='col-md-6'>
-                            <p><a href='blog.php'>Blog</a></p>
-                            <p>Beer thermo</p>
-                            <p>ARM stuff</p>
-                        </div>
-                        <div class='col-md-6'>
-                            <p><a href='https://github.com/adbooth/ADBs_pi_website' target='blank'>This website</a></p>
-                            <p>The home server it's hosted on</p>
+                            <?php echo populate_section('projects'); ?>
                         </div>
                     </div>
                 </div>
@@ -58,26 +81,16 @@
                     <h3>Blogs</h3>
                     <div class='row'>
                         <div class='col-md-6'>
-                            <p><a href='blog.php'>Current</a></p>
-                            <p><a href='http://ab-sweden.blogspot.com/' target='blank'>Sweden</a></p>
-                        </div>
-                        <div class='col-md-6'>
-                            <p><a href='http://edbooth.weebly.com/' target='blank'>My sister's awesome one-a-day</a></p>
+                            <?php echo populate_section('blogs'); ?>
                         </div>
                     </div>
                 </div>
                 <!-- Check Me Out -->
                 <div class='container pod'>
-                    <h3><a href='mailto:adbooth8@gmail.com' target='blank'>Talk</a>/<a href='https://github.com/adbooth' target='blank'>Fork</a>/<a href='res/Resume_Andrew_Booth.pdf' target='blank'>Hire</a></h3>
+                    <h3><a href='mailto:adbooth8@gmail.com' target='_blank'>Talk</a>/<a href='https://github.com/adbooth' target='_blank'>Fork</a>/<a href='res/Resume_Andrew_Booth.pdf' target='_blank'>Hire</a></h3>
                     <div class='row'>
                         <div class='col-md-6'>
-                            <p><a href='mailto:adbooth8@gmail.com' target='blank'>Email</a></p>
-                            <p><a href='res/Resume_Andrew_Booth.pdf' target='blank'>Current resume</a></p>
-                            <p><a href='https://www.linkedin.com/in/boothad' target='blank'>LinkedIn</a></p>
-                        </div>
-                        <div class='col-md-6'>
-                            <p><a href='https://www.facebook.com/Andrew.D.Booth' target='blank'>Facebook</a></p>
-                            <p><a href='https://github.com/adbooth' target='blank'>GitHub</a></p>
+                            <?php echo populate_section('connect'); ?>
                         </div>
                     </div>
                 </div>
@@ -86,8 +99,8 @@
         </div>
     </div><!-- Whole container -->
 </body>
-<?php include 'res/footer.html'; ?>
+<?php include 'footer.html'; ?>
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-<script src='res/ubiq.js'></script>
+<script src='ubiq.js'></script>
 </html>

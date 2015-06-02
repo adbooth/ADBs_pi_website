@@ -8,7 +8,7 @@
     <!-- Bootstrap core CSS -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
     <!-- Ubiquitous CSS -->
-    <link rel='stylesheet' href='res/ubiq.css'>
+    <link rel='stylesheet' href='ubiq.css'>
 
     <!-- My Stuff -->
     <link rel='shortcut icon' href='res/favicon.jpg'>
@@ -44,8 +44,8 @@
     </div><!-- Whole container -->
 
 </body>
-<?php require_once 'res/footer.html'; ?>
+<?php include 'footer.html'; ?>
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-<script src='res/ubiq.js'></script>
+<script src='ubiq.js'></script>
 </html>
