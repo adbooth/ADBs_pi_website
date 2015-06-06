@@ -1,0 +1,6 @@
+### Plz Read on Mobile Now
+
+Sike, you don't have to read on a mobile device.
+
+BUT
+if you do, take note of the fact that the archive appears at the top of your page instead of the bottom (which it did previously), while still on the right side of the page on the desktop/tablet version. This is thanks to a little JavaScript/PHP teamwork and a [script from a site](http://littlegreenfootballs.com/article/43278_Tech_Note-_Using_Media_Queries_With_PHP). Next up, make that Archive element a dropdown list on mobile.

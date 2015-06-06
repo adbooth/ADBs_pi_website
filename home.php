@@ -1,29 +1,29 @@
 <?php
-// Get file contents and turn into JSON object
+# Get file contents and turn into JSON object
 $home_content = file_get_contents('home_content.json');
 $home_json = json_decode($home_content);
 
-// Function which returns section markup dependendent on section name
+# Function which returns section markup dependendent on section name
 function populate_section($section_title){
-    // Get global JSON object into this function
+    # Get global JSON object into this function
     global $home_json;
-    // Use argument to access element of JSON object
+    # Use argument to access element of JSON object
     $section_content = $home_json->{$section_title};
-    // Initialize final markup string, half count and counter variables
-    $section_ml = "";
+    # Initialize final markup string, half count and counter variables
+    $section_mu = "";
     $half = count($section_content)/2;
     $counter = 0;
-    // Loop over items in each section and embed in HTML
+    # Loop over items in each section and embed in HTML
     foreach($section_content as $item){
-        // If just over half way through list, start second column
+        # If just over half way through list, start second column
         if($counter > $half){
-            $section_ml .= "</div><div class='col-md-6'>";
+            $section_mu .= "</div><div class='col-md-6'>";
         }
-        // Initialize left and right side of section markup
-        $section_ml .= "<p><a href='" . $item->{'anchor'} . "' target='" . $item->{'target'} . "'>" . $item->{'text'} . "</a></p>";
+        # Initialize left and right side of section markup
+        $section_mu .= "<p><a href='" . $item->{'anchor'} . "' target='" . $item->{'target'} . "'>" . $item->{'text'} . "</a></p>";
         $counter++;
     }
-    return $section_ml;
+    return $section_mu;
 }
 ?>
 

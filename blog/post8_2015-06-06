@@ -1,0 +1,7 @@
+### More Mobile Blog Improvements
+
+Check out the mobile blog. Updated the footer so it wouldn't be ugly when viewing on a small screen, as well as the archive container. In case I end up actually posting a lot of these things, the archive now acts as a dropdown list so that mobile readers can scroll right to the most recent post if they wish, or expand the archive (by clicking on it) and use the links within to navigate to their desired post. Got to use some of the [Bootstrap glyphicons](http://getbootstrap.com/components/#glyphicons) which, turns out, are included when you use the [Bootstrap CDNs](http://getbootstrap.com/getting-started/#download-cdn). This made the chevron inclusion very easy. I was struggling with the JQuery event handling for a while there though.
+
+In other news, the Corning internship has been interesting so far. Lots of orientation sessions, but I've gotten to see a lot of amazing engineering processes during the tours. How the hell these guys have come up with/built some of this stuff is beyond me. Insane for a 160-year-old company.
+
+Watched ~5 episodes of *Halt and Catch Fire* yesterday on Netflix. Would recommend.

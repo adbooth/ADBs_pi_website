@@ -8,5 +8,5 @@ function switchProf(){
 }
 
 function goHome(){
-    window.location.href='index.html';
+    window.location.href='home.php';
 }
