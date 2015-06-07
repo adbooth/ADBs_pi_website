@@ -21,16 +21,44 @@ foreach($dirList as $post){
     $id = str_replace(' ', '_', $title);
 
     # Make markup for blog elements
-    $content_mu .= "<div id='" . $id . "' class='container pod post'>" . $post_md . "<p align='right'><em>" . substr($post, -10) . "</em></p></div>";
+    $date = substr($post, 5, 10);
+    $content_mu .= <<<EOM
+    <div id='$id' class='container pod post'>
+        $post_md
+        <p align='right'><em>$date</em></p>
+    </div>
+EOM;
 
     # Make markup for archive content
     $archive_content_mu .= "<p><a href='#" . $id . "'>" . $title . "</a></p>";
 }
 
 # Make markup for desktop archive element
-$desktop_archive_mu = "<div class='col-md-4'><div class='container pod' data-spy='affix'><h4>Archive</h4><div>" . $archive_content_mu . "</div></div></div>";
+$desktop_archive_mu = <<<EOM
+<div class='col-md-4'>
+    <div class='container pod' data-spy='affix'>
+        <h4>Archive</h4>
+        <div>
+            $archive_content_mu
+            <p align='right'><a href='#whole'>Back to top</a></p>
+        </div>
+    </div>
+</div>
+EOM;
+
 # Make markup for mobile archive element
-$mobile_archive_mu = "<div class='col-md-4'><div class='container pod'><h4 id='archive'>Archive <span class='chevron glyphicon glyphicon-chevron-right'></span><span class='chevron glyphicon glyphicon-chevron-down'></span></h4><div id='archiveContent'>" . $archive_content_mu . "</div></div></div>";
+$mobile_archive_mu = <<<EOM
+<div class='col-md-4'>
+    <div class='container pod'>
+        <h4 id='archive'>
+            Archive
+            <span class='chevron glyphicon glyphicon-chevron-right'></span>
+            <span class='chevron glyphicon glyphicon-chevron-down'></span>
+        </h4>
+        <div id='archiveContent'>$archive_content_mu</div>
+    </div>
+</div>
+EOM;
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +76,6 @@ $mobile_archive_mu = "<div class='col-md-4'><div class='container pod'><h4 id='a
     <!-- My Stuff -->
     <link rel='shortcut icon' href='res/favicon.jpg'>
     <title>The Blog of Andrew D Booth</title>
-
     <style media="screen">
         body {
           font-family: Georgia, "Times New Roman", Times, serif;
@@ -84,14 +111,16 @@ if (matchMedia && window.matchMedia('(min-device-width: 320px) and (max-device-w
     document.cookie = 'mobile=1; path=/';
 }
 $(document).ready(function(){
-    // When the page loads, hide the archive content on mobile, hide the down chevron, and attach the 'toggleArchive' function to the archive header
+    // Hide the archive content on mobile
     $("#archiveContent").hide();
+    // Hide the down chevron
     $(".glyphicon-chevron-down").hide();
+    // Attach the 'toggleArchive' function to the archive header
     $("#archive").click(toggleArchive);
 
+    // Make images in posts responsive and all links open in new tab
     $(".post img").addClass("img-responsive");
     $(".post a").attr("target", "_blank");
-
 });
 function toggleArchive(){
     // When user clicks/taps the archive header, toggle the visible elements
