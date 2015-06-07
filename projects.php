@@ -32,7 +32,7 @@
                 </div>
                 <!-- About me container -->
                 <div class='container pod'>
-                    <?php include 'about.php'; ?>
+                    <?php if(!$_COOKIE['mobile']){include 'about.php';} ?>
                 </div>
             </div><!-- Column for photo and info -->
 
@@ -66,4 +66,9 @@
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 <script src='ubiq.js'></script>
+<script>
+if (matchMedia && window.matchMedia('(min-device-width: 320px) and (max-device-width: 480px)').matches) {
+    document.cookie = 'mobile=1; path=/';
+}
+</script>
 </html>

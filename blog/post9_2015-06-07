@@ -1,0 +1,12 @@
+### Test Photo Post
+
+So the [WordPress Markdown quick reference](https://en.support.wordpress.com/markdown-quick-reference/) is what I've been using to remind me of the the Markdown syntax, and mentions being able to embed images in Markdown documents. This isn't that hard to believe, but whenever I've had to deal with images in HTML (which is what [Parsedown](http://parsedown.org/) converts Markdown to), alignment has been a huge headache, so this post is going to serve as a test post for image embedding in Markdown
+
+Alright, here goes. Here's an inline image of the Lupin bloom at The Farm: ![inline image of Lupin at farm](res/barn_and_flowers.jpg "barn and Lupin at the farm")
+
+I also want to see what happens when I do it on a separate line.
+![inline image of hammers on separate line](res/lots_of_hammers.jpg "lots of hammers at Millerton, PA bicentennial")
+So yeah.
+
+Finally, a linked image (again, on a separate line):
+[![linked image of tomato bike bell](res/tomato_bell.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ "tomato bell")
