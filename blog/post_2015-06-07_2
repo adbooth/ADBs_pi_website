@@ -1,0 +1,9 @@
+### Post-Links Added to Blog Posts
+
+Isn't it a bit meta that these posts keep referring to the creation of the blog they exist in? Weird stuff right?
+
+Anyway, the blog had a couple updates, and it might even be time to move on to the [projects](projects.php) section of the site. For now at least. Hopefully the stuff I learned during the blog-build will make its development a little smoother, but we shall see. I'm hoping for a good implementation of JSON for section/file management, some PHP to build the page/Markdown, and of course some JQuery to clean it up. PHP's been the most interesting thing to me so far.
+
+The new blog stuff includes 'post-links,' a word I think I made up, which are the little links at the bottom of the posts that say the date of posting and link you to a special webpage devoted solely to that post, courtesy of some PHP. The other update was behind the scenes, mostly a new post management system which makes it easier for me to submit and track posts (hopefully). Also, the '[Back to top](#whole)' link in the archive. I say I'm done for now, but I'll surely be back for some homepage-linking improvements and to make that archive container a little more future-proof considering after 20 more posts, it'll be longer than the page (depending on your screen size).
+
+I was pretty impressed with [Universal Constant](https://www.facebook.com/UniversalConstant?fref=ts) last night. I've been planning on seeing them for a while now I finally got the chance at [Brady's](https://www.facebook.com/bradyspubelmira). Some good covers were played and it was cool seeing the old EFA crew. I'm sure it'll get old soon enough.

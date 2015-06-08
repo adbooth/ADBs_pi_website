@@ -1,63 +1,63 @@
 <?php
-# Initialize Parsedown object
-require_once 'libs/Parsedown.php';
-$parsedown = new Parsedown();
+    # Initialize Parsedown object
+    require_once 'libs/Parsedown.php';
+    $parsedown = new Parsedown();
 
-# Initialize content and archive content holder variables
-$content_mu = "";
-$archive_content_mu = "";
+    # Initialize content and archive content holder variables
+    $content_mu = "";
+    $archive_content_mu = "";
 
-$dirList = scandir('blog', 1);
-foreach($dirList as $post){
-    # If item is directory or starts with a period, skip it
-    if(is_dir("blog/" . $post) or $post[0] == '.'){continue;}
+    $dirList = scandir('blog', 1);
+    foreach($dirList as $post){
+        # If item is directory or starts with a period, skip it
+        if(is_dir("blog/" . $post) or $post[0] == '.'){continue;}
 
-    # Get markdown file contents and parse into HTML
-    $post_content = file_get_contents("blog/" . $post);
-    $post_md = $parsedown->text($post_content);
+        # Get markdown file contents and parse into HTML
+        $post_content = file_get_contents("blog/" . $post);
+        $post_md = $parsedown->text($post_content);
 
-    # Get title and id for each post
-    $title = ltrim(stristr($post_content, "\n", true), '# ');
-    $id = str_replace(' ', '_', $title);
+        # Get title and id for each post
+        $title = ltrim(stristr($post_content, "\n", true), '# ');
+        $id = str_replace(' ', '_', $title);
 
-    # Make markup for blog elements
-    $date = substr($post, 5, 10);
-    $content_mu .= <<<EOM
-    <div id='$id' class='container pod post'>
-        $post_md
-        <p align='right'><em>$date</em></p>
-    </div>
+        # Make markup for blog elements
+        $date = substr($post, 5, 10);
+        $content_mu .= <<<EOM
+        <div id='$id' class='container pod post'>
+            $post_md
+            <p align='right'><a class='postLink' href='post.php?post=$post'><em>$date</em></a></p>
+        </div>
 EOM;
 
-    # Make markup for archive content
-    $archive_content_mu .= "<p><a href='#" . $id . "'>" . $title . "</a></p>";
-}
+        # Make markup for archive content
+        $archive_content_mu .= "<p><a href='#" . $id . "'>" . $title . "</a></p>";
+    }
 
-# Make markup for desktop archive element
-$desktop_archive_mu = <<<EOM
-<div class='col-md-4'>
-    <div class='container pod' data-spy='affix'>
-        <h4>Archive</h4>
-        <div>
-            $archive_content_mu
-            <p align='right'><a href='#whole'>Back to top</a></p>
+    # Make markup for desktop archive element
+    $desktop_archive_mu = <<<EOM
+    <div class='col-md-4'>
+        <div class='container pod' data-spy='affix'>
+            <h4>Archive</h4>
+            <div>
+                $archive_content_mu
+                <p align='right'><a href='#whole'>Back to top</a></p>
+            </div>
         </div>
     </div>
-</div>
 EOM;
 
-# Make markup for mobile archive element
-$mobile_archive_mu = <<<EOM
-<div class='col-md-4'>
-    <div class='container pod'>
-        <h4 id='archive'>
-            Archive
-            <span class='chevron glyphicon glyphicon-chevron-right'></span>
-            <span class='chevron glyphicon glyphicon-chevron-down'></span>
-        </h4>
-        <div id='archiveContent'>$archive_content_mu</div>
+    # Make markup for mobile archive element
+    $mobile_archive_mu = <<<EOM
+    <div class='col-md-4'>
+        <div class='container pod'>
+            <h4 id='archive'>
+                Archive
+                <span class='chevron glyphicon glyphicon-chevron-right'></span>
+                <span class='chevron glyphicon glyphicon-chevron-down'></span>
+            </h4>
+            <div id='archiveContent'>$archive_content_mu</div>
+        </div>
     </div>
-</div>
 EOM;
 ?>
 
@@ -107,7 +107,7 @@ EOM;
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 <script src='ubiq.js'></script>
 <script>
-if (matchMedia && window.matchMedia('(min-device-width: 320px) and (max-device-width: 480px)').matches) {
+if(matchMedia && window.matchMedia('(min-device-width: 320px) and (max-device-width: 480px)').matches) {
     document.cookie = 'mobile=1; path=/';
 }
 $(document).ready(function(){
@@ -121,6 +121,7 @@ $(document).ready(function(){
     // Make images in posts responsive and all links open in new tab
     $(".post img").addClass("img-responsive");
     $(".post a").attr("target", "_blank");
+    $(".postLink").attr("target", "_self");
 });
 function toggleArchive(){
     // When user clicks/taps the archive header, toggle the visible elements
