@@ -10,7 +10,7 @@
     $dirList = scandir('blog', 1);
     foreach($dirList as $post){
         # If item is directory or starts with a period, skip it
-        if(is_dir("blog/" . $post) or $post[0] == '.'){continue;}
+        if(is_dir("blog/" . $post) or substr($post, 0, 4) != 'post'){continue;}
 
         # Get markdown file contents and parse into HTML
         $post_content = file_get_contents("blog/" . $post);
