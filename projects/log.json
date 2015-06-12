@@ -1,0 +1,16 @@
+{
+    "blog":{
+        "title": "Blog",
+        "filename": "blog.md"
+    },
+
+    "website":{
+        "title": "This website",
+        "filename": "website.md"
+    },
+
+    "server":{
+        "title": "The home server it's hosted on",
+        "filename": "server.md"
+    }
+}

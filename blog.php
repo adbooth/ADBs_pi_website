@@ -7,10 +7,11 @@
     $content_mu = "";
     $archive_content_mu = "";
 
+    # Loop through items in directory and decide whether to turn into mark up
     $dirList = scandir('blog', 1);
     foreach($dirList as $post){
         # If item is directory or starts with a period, skip it
-        if(is_dir("blog/" . $post) or substr($post, 0, 4) != 'post'){continue;}
+        if(is_dir("blog/" . $post) or substr($post, 0, 5) != 'post_'){continue;}
 
         # Get markdown file contents and parse into HTML
         $post_content = file_get_contents("blog/" . $post);
