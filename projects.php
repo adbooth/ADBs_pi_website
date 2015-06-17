@@ -20,24 +20,22 @@
         <div class='row'>
 
             <!-- Column for photo and info -->
-            <div class='col-md-4'>
-                <!-- Profile pic container -->
-                <div class='container'>
-                    <img id='prof_pic' class='img-responsive' src='res/Chimney_prof_pic.jpg' alt='Photo of my face and some or all of my torso' onclick='switchProf()' style='cursor:pointer'>
-                </div>
+            <div class='col-sm-4'>
+                <!-- Profile pic -->
+                <img id='prof_pic' class='img-responsive' src='res/Chimney_prof_pic.jpg' alt='Photo of my face and some or all of my torso' onclick='switchProf()' style='cursor:pointer'>
                 <!-- Name container -->
                 <div class='container pod' onclick='goHome()' style='cursor:pointer'>
                     <h2>Andrew Booth</h2>
                     <h5>Barefoot whenever possible.</h5>
                 </div>
                 <!-- About me container -->
-                <div class='container pod'>
-                    <?php if(!$_COOKIE['mobile']){include 'about.php';} ?>
+                <div class='container pod hidden-xs'>
+                    <?php include 'about.php' ?>
                 </div>
             </div><!-- Column for photo and info -->
 
             <!-- Column for content -->
-            <div class='col-md-8'>
+            <div class='col-sm-8'>
                 <div class="container pod">
                     <h1>Projects</h1>
                 </div>
@@ -66,9 +64,4 @@
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 <script src='ubiq.js'></script>
-<script>
-if (matchMedia && window.matchMedia('(min-device-width: 320px) and (max-device-width: 480px)').matches) {
-    document.cookie = 'mobile=1; path=/';
-}
-</script>
 </html>

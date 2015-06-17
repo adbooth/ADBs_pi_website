@@ -17,7 +17,7 @@
         foreach($section_content as $item){
             # If just over half way through list, start second column
             if($counter > $half){
-                $section_mu .= "</div><div class='col-md-6'>";
+                $section_mu .= "</div><div class='col-sm-6'>";
             }
             # Initialize left and right side of section markup
             $section_mu .= "<p><a href='" . $item->{'anchor'} . "' target='" . $item->{'target'} . "'>" . $item->{'text'} . "</a></p>";
@@ -49,11 +49,9 @@
         <div class='row'>
 
             <!-- Column for photo and info -->
-            <div class='col-md-4'>
-                <!-- Profile pic container -->
-                <div class='container'>
-                    <img id='prof_pic' class='img-responsive' src='res/Chimney_prof_pic.jpg' alt='Photo of my face and some or all of my torso' onclick='switchProf()' style='cursor:pointer'>
-                </div>
+            <div class='col-sm-4'>
+                <!-- Profile pic -->
+                <img id='prof_pic' class='img-responsive' src='res/Chimney_prof_pic.jpg' alt='Photo of my face and some or all of my torso' onclick='switchProf()' style='cursor:pointer'>
                 <!-- Name container -->
                 <div class='container pod' onclick='goHome()' style='cursor:pointer'>
                     <h2>Andrew Booth</h2>
@@ -66,12 +64,12 @@
             </div><!-- Column for photo and info -->
 
             <!-- Column for content/links -->
-            <div class='col-md-8'>
+            <div class='col-sm-8'>
                 <!-- Projects container -->
                 <div class='container pod'>
                     <h3><a href='projects.php'>Projects</a></h3>
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-sm-6'>
                             <?php echo populate_section('projects'); ?>
                         </div>
                     </div>
@@ -80,16 +78,16 @@
                 <div class='container pod'>
                     <h3>Blogs</h3>
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-sm-6'>
                             <?php echo populate_section('blogs'); ?>
                         </div>
                     </div>
                 </div>
                 <!-- Check Me Out -->
                 <div class='container pod'>
-                    <h3><a href='mailto:adbooth8@gmail.com' target='_blank'>Talk</a>/<a href='https://github.com/adbooth' target='_blank'>Fork</a>/<a href='res/Resume_Andrew_Booth.pdf' target='_blank'>Hire</a></h3>
+                    <h3><a href='mailto:boothandrewd@gmail.com' target='_blank'>Talk</a>/<a href='https://github.com/adbooth' target='_blank'>Fork</a>/<a href='res/Resume_Andrew_Booth.pdf' target='_blank'>Hire</a></h3>
                     <div class='row'>
-                        <div class='col-md-6'>
+                        <div class='col-sm-6'>
                             <?php echo populate_section('connect'); ?>
                         </div>
                     </div>

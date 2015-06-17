@@ -36,8 +36,8 @@ EOM;
 
     # Make markup for desktop archive element
     $desktop_archive_mu = <<<EOM
-    <div class='col-md-4'>
-        <div class='container pod' data-spy='affix'>
+    <div class='col-sm-4'>
+        <div id='nonmobile_archive_pod' class='container pod' data-spy='affix' data-offset-top='114'>
             <h4>Archive</h4>
             <div>
                 $archive_content_mu
@@ -49,9 +49,9 @@ EOM;
 
     # Make markup for mobile archive element
     $mobile_archive_mu = <<<EOM
-    <div class='col-md-4'>
+    <div class='col-sm-4'>
         <div class='container pod'>
-            <h4 id='archive'>
+            <h4 id='mobile_archive_header'>
                 Archive
                 <span class='chevron glyphicon glyphicon-chevron-right'></span>
                 <span class='chevron glyphicon glyphicon-chevron-down'></span>
@@ -82,6 +82,9 @@ EOM;
           font-family: Georgia, "Times New Roman", Times, serif;
           color: #555;
         }
+        .affix {
+            top: 15px;
+        }
     </style>
 </head>
 <body id='whole'>
@@ -93,13 +96,17 @@ EOM;
         </div>
         <div class='row'>
             <!-- If mobile, put archive here -->
-            <?php if($_COOKIE['mobile']){echo $mobile_archive_mu;} ?>
+            <div class='visible-xs'>
+                <?php echo $mobile_archive_mu; ?>
+            </div>
             <!-- Column for the posts -->
-            <div class='col-md-8'>
+            <div class='col-sm-8'>
                 <?php echo $content_mu; ?>
             </div>
             <!-- If not mobile, put archive here -->
-            <?php if(!$_COOKIE['mobile']){echo $desktop_archive_mu;} ?>
+            <div class='hidden-xs'>
+                <?php echo $desktop_archive_mu; ?>
+            </div>
         </div>
     </div>
 </body>
@@ -108,20 +115,18 @@ EOM;
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 <script src='ubiq.js'></script>
 <script>
-if(matchMedia && window.matchMedia('(min-device-width: 320px) and (max-device-width: 480px)').matches) {
-    document.cookie = 'mobile=1; path=/';
-}
 $(document).ready(function(){
     // Hide the archive content on mobile
     $("#archiveContent").hide();
     // Hide the down chevron
     $(".glyphicon-chevron-down").hide();
     // Attach the 'toggleArchive' function to the archive header
-    $("#archive").click(toggleArchive);
+    $("#mobile_archive_header").click(toggleArchive);
 
     // Make images in posts responsive and all links open in new tab
     $(".post img").addClass("img-responsive");
     $(".post a").attr("target", "_blank");
+    // Except for postLinks
     $(".postLink").attr("target", "_self");
 });
 function toggleArchive(){

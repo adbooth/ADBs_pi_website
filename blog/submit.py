@@ -3,7 +3,6 @@
 from sys import argv
 from datetime import datetime
 from os import stat, system
-# from paramiko import SSHClient
 
 # Get input file name
 script, fileName = argv
@@ -14,14 +13,6 @@ date = time.strftime("%Y-%m-%d")
 # Make new file name for post file
 tempPostName = 'post_' + date
 print "Temporary post name is %s" % tempPostName
-
-# # Connect to server as SFTP
-# print 'Connecting to server as SFTP'
-# ssh = SSHClient()
-# ssh.load_system_host_keys()
-# ssh.connect('74.74.104.22', port=22, username='pi', key_filename='/Users/AndrewDBooth/.ssh/id_rsa.pub')
-# sftp = ssh.open_sftp();
-# print 'SFTP session established'
 
 # Count number of posts posted today
 print 'Counting posts posted today'

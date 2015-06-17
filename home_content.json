@@ -14,7 +14,7 @@
     ],
 
     "connect":[
-        {"text":"Email", "anchor":"mailto:adbooth8@gmail.com", "target":"_blank"},
+        {"text":"Email", "anchor":"mailto:boothandrewd@gmail.com", "target":"_blank"},
         {"text":"Current resumé", "anchor":"res/Resume_Andrew_Booth.pdf", "target":"_blank"},
         {"text":"LinkedIn", "anchor":"https://www.linkedin.com/in/boothad", "target":"_blank"},
         {"text":"Facebook", "anchor":"https://www.facebook.com/Andrew.D.Booth", "target":"_blank"},

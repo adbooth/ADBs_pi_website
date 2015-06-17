@@ -1,16 +1,19 @@
 {
     "blog":{
         "title": "Blog",
-        "filename": "blog.md"
+        "anchor": "",
+        "dirname": "blog/"
     },
 
     "website":{
         "title": "This website",
-        "filename": "website.md"
+        "anchor": "",
+        "dirname": "website/"
     },
 
     "server":{
         "title": "The home server it's hosted on",
-        "filename": "server.md"
+        "anchor": "",
+        "dirname": "server/"
     }
 }
