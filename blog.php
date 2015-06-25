@@ -1,41 +1,41 @@
 <?php
-    # Initialize Parsedown object
-    require_once 'libs/Parsedown.php';
-    $parsedown = new Parsedown();
+# Initialize Parsedown object
+require_once 'libs/Parsedown.php';
+$parsedown = new Parsedown();
 
-    # Initialize content and archive content holder variables
-    $content_mu = "";
-    $archive_content_mu = "";
+# Initialize content and archive content holder variables
+$content_mu = "";
+$archive_content_mu = "";
 
-    # Loop through items in directory and decide whether to turn into mark up
-    $dirList = scandir('blog', 1);
-    foreach($dirList as $post){
-        # If item is directory or starts with a period, skip it
-        if(is_dir("blog/" . $post) or substr($post, 0, 5) != 'post_'){continue;}
+# Loop through items in directory and decide whether to turn into mark up
+$dirList = scandir('blog', 1);
+foreach($dirList as $post){
+    # If item is directory or starts with a period, skip it
+    if(substr($post, 0, 5) != 'post_'){continue;}
 
-        # Get markdown file contents and parse into HTML
-        $post_content = file_get_contents("blog/" . $post);
-        $post_md = $parsedown->text($post_content);
+    # Get markdown file contents and parse into HTML
+    $post_content = file_get_contents("blog/" . $post);
+    $post_md = $parsedown->text($post_content);
 
-        # Get title and id for each post
-        $title = ltrim(stristr($post_content, "\n", true), '# ');
-        $id = str_replace(' ', '_', $title);
+    # Get title and id for each post
+    $title = ltrim(stristr($post_content, "\n", true), '# ');
+    $id = str_replace(' ', '_', $title);
 
-        # Make markup for blog elements
-        $date = substr($post, 5, 10);
-        $content_mu .= <<<EOM
+    # Make markup for blog elements
+    $date = substr($post, 5, 10);
+    $content_mu .= <<<EOM
         <div id='$id' class='container pod post'>
             $post_md
             <p align='right'><a class='postLink' href='post.php?post=$post'><em>$date</em></a></p>
         </div>
 EOM;
 
-        # Make markup for archive content
-        $archive_content_mu .= "<p><a href='#" . $id . "'>" . $title . "</a></p>";
-    }
+    # Make markup for archive content
+    $archive_content_mu .= "<p><a href='#" . $id . "'>" . $title . "</a></p>";
+}
 
-    # Make markup for desktop archive element
-    $desktop_archive_mu = <<<EOM
+# Make markup for desktop archive element
+$desktop_archive_mu = <<<EOM
     <div class='col-sm-4'>
         <div id='nonmobile_archive_pod' class='container pod' data-spy='affix' data-offset-top='114'>
             <h4>Archive</h4>
@@ -47,8 +47,8 @@ EOM;
     </div>
 EOM;
 
-    # Make markup for mobile archive element
-    $mobile_archive_mu = <<<EOM
+# Make markup for mobile archive element
+$mobile_archive_mu = <<<EOM
     <div class='col-sm-4'>
         <div class='container pod'>
             <h4 id='mobile_archive_header'>

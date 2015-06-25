@@ -1,30 +1,37 @@
 <?php
-    # Get file contents and turn into JSON object
-    $home_content = file_get_contents('home_content.json');
-    $home_json = json_decode($home_content);
+# Get file contents and turn into JSON object
+$log_json = file_get_contents('log.json');
+$log = json_decode($log_json);
 
-    # Function which returns section markup dependendent on section name
-    function populate_section($section_title){
-        # Get global JSON object into this function
-        global $home_json;
-        # Use argument to access element of JSON object
-        $section_content = $home_json->{$section_title};
-        # Initialize final markup string, half count and counter variables
-        $section_mu = "";
-        $half = count($section_content)/2;
-        $counter = 0;
-        # Loop over items in each section and embed in HTML
-        foreach($section_content as $item){
-            # If just over half way through list, start second column
-            if($counter > $half){
-                $section_mu .= "</div><div class='col-sm-6'>";
-            }
-            # Initialize left and right side of section markup
-            $section_mu .= "<p><a href='" . $item->{'anchor'} . "' target='" . $item->{'target'} . "'>" . $item->{'text'} . "</a></p>";
-            $counter++;
+# Function which returns section markup dependendent on section name
+function populate_section($section_title){
+    # Get global JSON object into this function
+    global $log;
+
+    # Get section object out of log
+    $section = $log->{$section_title};
+
+    # Initialize markup_holder, half count and counter variables
+    $markup_holder = "";
+    $half = count($section)/2;
+    $counter = 0;
+
+    # Loop over items in each section and embed in HTML
+    foreach($section as $item){
+        # If just over half way through list, start second column
+        if($counter > $half){
+            $markup_holder .= "</div><div class='col-sm-6'>";
         }
-        return $section_mu;
+
+        # Add section markup to holder
+        $anchor = $item->{'anchor'};
+        $target = $item->{'target'};
+        $title = $item->{'title'};
+        $markup_holder .= "<a href='$anchor' target='$target'><p>$title</p></a>";
+        $counter++;
     }
+    return $markup_holder;
+}
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +68,7 @@
                 <div class='container pod'>
                     <?php include 'about.php'; ?>
                 </div>
-            </div><!-- Column for photo and info -->
+            </div>
 
             <!-- Column for content/links -->
             <div class='col-sm-8'>
@@ -92,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- Column for content/links -->
+            </div>
 
         </div>
     </div><!-- Whole container -->

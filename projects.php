@@ -1,3 +1,35 @@
+<?php
+# Initialize Parsedown object
+require_once 'libs/Parsedown.php';
+$parsedown = new Parsedown();
+
+# Get file contents and turn into JSON object
+$log_json = file_get_contents('log.json');
+$log = json_decode($log_json);
+$projects = $log->{'projects'};
+
+# Initialize markup holder
+$markup_holder = "";
+
+# Loop through projects and build markup
+foreach($projects as $dirname => $project){
+    # Parse detail markdown into markup
+    $detail_md = file_get_contents('projects/' . $dirname . '/details.md');
+    $detail_mu = $parsedown->text($detail_md);
+
+    # Add project markup to holder
+    $anchor = $project->{'anchor'};
+    $target = $project->{'target'};
+    $title = $project->{'title'};
+    $markup_holder .= <<<EOM
+        <div class='container pod'>
+            <a href='$anchor' target='$target'><h2>$title</h2></a>
+            $detail_mu
+        </div>
+EOM;
+}
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -32,36 +64,28 @@
                 <div class='container pod hidden-xs'>
                     <?php include 'about.php' ?>
                 </div>
-            </div><!-- Column for photo and info -->
+            </div>
 
             <!-- Column for content -->
             <div class='col-sm-8'>
                 <div class="container pod">
                     <h1>Projects</h1>
                 </div>
-                <div class="container pod">
-                    <h4>Blog</h4>
-                    <p>Details about project</p>
-                </div>
-                <div class="container pod">
-                    <h4>Beer thermo</h4>
-                    <p>Details about project</p>
-                </div>
-                <div class="container pod">
-                    <h4>ARM stuff</h4>
-                    <p>Details about project</p>
-                </div>
-                <div class="container pod">
-                    <h4>This website</h4>
-                    <p>Details about project</p>
-                </div>
-            </div><!-- Column for content/links -->
-
+                <?php echo $markup_holder; ?>
+            </div>
         </div>
-    </div><!-- Whole container -->
+    </div>
 </body>
 <?php include 'footer.html'; ?>
 <script src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
 <script src='ubiq.js'></script>
+<script type='text/javascript'>
+    // $(document).ready(function(){
+    //     var size = $("#top").height();
+    //     var face = $("#face");
+    //     face.height(size).width(size);
+    //     $("#face_img").attr("src", "res/favicon.jpg");
+    // })
+</script>
 </html>

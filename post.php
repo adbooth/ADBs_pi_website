@@ -1,19 +1,19 @@
 <?php
-    # Initialize Parsedown object
-    require_once 'libs/Parsedown.php';
-    $parsedown = new Parsedown();
+# Initialize Parsedown object
+require_once 'libs/Parsedown.php';
+$parsedown = new Parsedown();
 
-    # Get data passed with link
-    $postName = $_GET['post'];
+# Get data passed with link
+$postName = $_GET['post'];
 
-    # Make post markup
-    $post_content = file_get_contents('blog/' . $postName);
-    $post_mu = $parsedown->text($post_content);
+# Make post markup
+$post_content = file_get_contents('blog/' . $postName);
+$post_mu = $parsedown->text($post_content);
 
-    # Get date from post filename
-    $date = substr($postName, 5, 10);
-    # Append to post markup
-    $post_mu .= "<p align='right'><em>" . $date . "</em></p>";
+# Get date from post filename
+$date = substr($postName, 5, 10);
+# Append to post markup
+$post_mu .= "<p align='right'><em>" . $date . "</em></p>";
 ?>
 
 <!DOCTYPE html>

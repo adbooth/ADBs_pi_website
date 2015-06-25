@@ -1,0 +1,43 @@
+{
+    "projects":{
+        "blog":{
+            "title":"Blog",
+            "anchor":"project.php?project=blog",
+            "target":"_self"
+        },
+        "thermo":{
+            "title":"Beer thermo",
+            "anchor":"http://www.micromatic.com/mmoldimages/articles/46/beer-at-38-small.jpg",
+            "target":"_blank"
+        },
+        "ARM":{
+            "title":"ARM stuff",
+            "anchor":"https://github.com/adbooth/CSE341_MIPS_division_project",
+            "target":"_blank"
+        },
+        "website":{
+            "title":"This website",
+            "anchor":"https://github.com/adbooth/ADBs_pi_website",
+            "target":"_blank"
+        },
+        "server":{
+            "title":"The home server it's hosted on",
+            "anchor":"project.php?project=server",
+            "target":"_blank"
+        }
+    },
+
+    "blogs":[
+        {"title":"Current", "anchor":"blog.php", "target":"_self"},
+        {"title":"Sweden", "anchor":"http://ab-sweden.blogspot.com/", "target":"_blank"},
+        {"title":"My sister's awesome one-a-day", "anchor":"http://edbooth.weebly.com/", "target":"_blank"}
+    ],
+
+    "connect":[
+        {"title":"Email", "anchor":"mailto:boothandrewd@gmail.com", "target":"_blank"},
+        {"title":"Current resumé", "anchor":"res/Resume_Andrew_Booth.pdf", "target":"_blank"},
+        {"title":"LinkedIn", "anchor":"https://www.linkedin.com/in/boothad", "target":"_blank"},
+        {"title":"Facebook", "anchor":"https://www.facebook.com/Andrew.D.Booth", "target":"_blank"},
+        {"title":"GitHub", "anchor":"https://github.com/adbooth", "target":"_blank"}
+    ]
+}
